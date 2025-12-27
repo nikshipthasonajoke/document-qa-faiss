@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Document-Based QA System</title>
+</head>
+
+<body>
+    <h2>Document-Based QA System</h2>
+
+    <p><i>
+        This system retrieves relevant document context using semantic embeddings
+        and FAISS similarity search. Answers are strictly grounded in the uploaded document.
+    </i></p>
+
+    <h3>Upload Document</h3>
+    <form method="POST" enctype="multipart/form-data">
+        <input type="file" name="document" required>
+        <button type="submit">Upload & Index</button>
+    </form>
+
+    {% if message %}
+        <p><b>{{ message }}</b></p>
+    {% endif %}
+
+    <hr>
+
+    <h3>Ask a Question</h3>
+    <form method="POST">
+        <input
+            type="text"
+            name="question"
+            size="60"
+            placeholder="Ask something about the document..."
+            required
+        >
+        <button type="submit">Ask</button>
+    </form>
+
+    {% if question %}
+        <h4>Question</h4>
+        <p>{{ question }}</p>
+
+        <h4>Final Answer</h4>
+        <p>{{ final_answer }}</p>
+
+        {% if supporting_context %}
+            <h4>Supporting Context</h4>
+            {% for ctx in supporting_context %}
+                <p>• {{ ctx }}</p>
+            {% endfor %}
+        {% endif %}
+    {% endif %}
+</body>
+</html>
