@@ -25,6 +25,7 @@ The system uses semantic embeddings and FAISS vector similarity search to retrie
 
 ## Project Structure
 
+```
 miko_rag/
 ├── src/
 │   ├── app.py               # Flask application
@@ -36,6 +37,8 @@ miko_rag/
 │   └── index.html           # Web UI
 ├── requirements.txt
 └── README.md
+```
+
 
 ## Installation
 
@@ -103,3 +106,4 @@ This ensures all answers remain grounded and reliable.
 ## License
 
 This project is intended for educational and demonstration purposes.
+
